@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`inventory` (
   `partcode` VARCHAR(15) NOT NULL,
   `description` VARCHAR(100) NOT NULL,
   `quantity` INT UNSIGNED NOT NULL,
-  `list_price` DECIMAL(2) UNSIGNED ZEROFILL NOT NULL,
+  `list_price` DECIMAL(5, 2) UNSIGNED ZEROFILL NOT NULL,
   PRIMARY KEY (`partcode`),
   UNIQUE INDEX `partcode_UNIQUE` (`partcode` ASC) VISIBLE)
 ENGINE = InnoDB;
