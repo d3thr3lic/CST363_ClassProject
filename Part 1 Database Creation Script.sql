@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `mydb`.`order_header` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`order_header` (
   `order_number` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `order_date` DATE NOT NULL DEFAULT (CURRENT_DATE),
-  `total_order_value` DECIMAL(2) UNSIGNED NOT NULL,
+  `total_order_value` DECIMAL(9,2) UNSIGNED NOT NULL,
   `customer_id` VARCHAR(10) NOT NULL COMMENT 'Allows traceablity back to customer even after address change.',
   `ship_address` VARCHAR(100) NOT NULL COMMENT 'Recorded to keep record of ship/bill address information in case of address change.',
   `ship_zip_code` VARCHAR(5) NOT NULL COMMENT 'Recorded to keep record of ship/bill address information in case of address change.',
