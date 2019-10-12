@@ -13,33 +13,33 @@ INSERT INTO customers VALUES(1, 'Science Food'),
 
 -- Data entry for customer_addresses (customer_id, address_type, address, zip_code, state)
 
-INSERT INTO customer_addresses VALUES(1, 'ship', '1338 Cecil Street', 60089, 'IL','398-643-9782'),
-(1, 'bill', '1338 Cecil Street', 60089, 'IL','398-643-9782'),
-(2, 'ship', '4413 Hill Haven Drive', 98433, 'WA','509-764-9884'),
-(2, 'bill', '4605 Calico Drive', 98801, 'WA','360-823-2829'),
-(3, 'ship', '2161 Sycamore Lake Road', 54301, 'WI','262-909-9892'),
-(3, 'bill', '1910 Anmoore Road', 11101, 'NY','585-266-6935'),
+INSERT INTO customer_addresses VALUES(1, 'SHIP', '1338 Cecil Street', 60089, 'IL','398-643-9782'),
+(1, 'BILL', '1338 Cecil Street', 60089, 'IL','398-643-9782'),
+(2, 'SHIP', '4413 Hill Haven Drive', 98433, 'WA','509-764-9884'),
+(2, 'BILL', '4605 Calico Drive', 98801, 'WA','360-823-2829'),
+(3, 'SHIP', '2161 Sycamore Lake Road', 54301, 'WI','262-909-9892'),
+(3, 'BILL', '1910 Anmoore Road', 11101, 'NY','585-266-6935'),
 
-(4, 'ship', '3317 Melm Street',  02852, 'RI','401-736-8087'),
-(4, 'bill', '3317 Melm Street', 02852, 'RI','401-736-8087'),
+(4, 'SHIP', '3317 Melm Street',  02852, 'RI','401-736-8087'),
+(4, 'BILL', '3317 Melm Street', 02852, 'RI','401-736-8087'),
 
-(5, 'ship', '1230 Columbia Road', 19711, 'DE','302-498-7523'),
-(5, 'bill', '1588 Myra Street', 02903, 'RI','401-271-4547'),
+(5, 'SHIP', '1230 Columbia Road', 19711, 'DE','302-498-7523'),
+(5, 'BILL', '1588 Myra Street', 02903, 'RI','401-271-4547'),
 
-(6, 'ship', '4460 Poe Road', 77520, 'TX','361-391-3881'),
-(6, 'bill', '4460 Poe Road', 77520, 'TX','361-391-3881'),
+(6, 'SHIP', '4460 Poe Road', 77520, 'TX','361-391-3881'),
+(6, 'BILL', '4460 Poe Road', 77520, 'TX','361-391-3881'),
 
-(7, 'ship', '3863 Hood Avenue', 92123, 'CA','209-513-9239'),
-(7, 'bill', '3863 Hood Avenue', 92123, 'CA','209-513-9239'),
+(7, 'SHIP', '3863 Hood Avenue', 92123, 'CA','209-513-9239'),
+(7, 'BILL', '3863 Hood Avenue', 92123, 'CA','209-513-9239'),
 
-(8, 'ship', '3715 Kidd Avenue', 99701, 'AK','907-226-6623'),
-(8, 'bill', '2801 Hickman Street', 60173, 'IL','708-412-2242'),
+(8, 'SHIP', '3715 Kidd Avenue', 99701, 'AK','907-226-6623'),
+(8, 'BILL', '2801 Hickman Street', 60173, 'IL','708-412-2242'),
 
-(9, 'ship', '4271 Hershell Hollow Road', 98119, 'WA','509-687-7931'),
-(9, 'bill', '4271 Hershell Hollow Road', 98119, 'WA','509-687-7931'),
+(9, 'SHIP', '4271 Hershell Hollow Road', 98119, 'WA','509-687-7931'),
+(9, 'BILL', '4271 Hershell Hollow Road', 98119, 'WA','509-687-7931'),
 
-(10, 'ship', '4178 Millbrook Road', 60090, 'IL','312-258-8971'),
-(10, 'bill', '3424 Willison Street', 55303, 'MN','952-277-6535');
+(10, 'SHIP', '4178 Millbrook Road', 60090, 'IL','312-258-8971'),
+(10, 'BILL', '3424 Willison Street', 55303, 'MN','952-277-6535');
 
 
 -- Data entry for inventory ( partcode, description, quanity, list_price)
