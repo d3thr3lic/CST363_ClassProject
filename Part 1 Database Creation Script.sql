@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`inventory` (
   `partcode` VARCHAR(15) NOT NULL,
   `description` VARCHAR(100) NOT NULL,
   `quantity` INT UNSIGNED NOT NULL,
-  `list_price` DECIMAL(5, 2) UNSIGNED ZEROFILL NOT NULL,
+  `list_price` DECIMAL(9, 2) UNSIGNED ZEROFILL NOT NULL,
   PRIMARY KEY (`partcode`),
   UNIQUE INDEX `partcode_UNIQUE` (`partcode` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`order_lines` (
   `order_seq` INT NOT NULL AUTO_INCREMENT,
   `partcode` VARCHAR(15) NOT NULL,
   `quantity` INT UNSIGNED NOT NULL,
-  `line_value` DECIMAL(2) UNSIGNED NOT NULL,
+  `line_value` DECIMAL(9,2) UNSIGNED NOT NULL,
   PRIMARY KEY (`order_seq`, `order_number`),
   INDEX `order_number_fk_idx` (`order_number` ASC) VISIBLE,
   INDEX `partcode_fk_idx` (`partcode` ASC) VISIBLE,
