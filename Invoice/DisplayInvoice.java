@@ -1,5 +1,5 @@
 /**MNR Canine Goods
- * Invoice displaying servlet
+ * Invoice displaying Servlet
  * Author @NicholasSaunders
  */
 
@@ -33,15 +33,7 @@ public class DisplayInvoice extends HttpServlet {
 			throws ServletException, IOException {
 
 		// SQL statements
-		String sql = "SELECT c.customer_name ,oh.customer_id, oh.order_number, "+
-					 "	oh.order_date, oh.total_order_value, " + 
-					 "	oh.ship_address, oh.ship_zip_code,oh.ship_state,oh.ship_phone, " + 
-					 "	oh.bill_address,oh.bill_zip_code,oh.bill_state, oh.bill_phone, " + 
-					 "	ol.order_seq, ol.partcode, ol.quantity, ol.line_value " + 
-					 "FROM order_header oh JOIN order_lines ol JOIN customers c " + 
-					 "ON oh.order_number = ol.order_number " + 
-					 "AND oh.customer_id = c.customer_id " + 
-					 "WHERE oh.order_number LIKE ?;";
+		String sql = "SELECT * FROM DisplayInvoiceInfo WHERE order_number LIKE ?;";
 
 		// Set response content type
 		response.setContentType("text/html"); 
@@ -54,7 +46,7 @@ public class DisplayInvoice extends HttpServlet {
 		{
 			// prepare select
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,  name); 
+			pstmt.setString(1, name); 
 			ResultSet rs = pstmt.executeQuery();
 
 			//start html output
@@ -132,7 +124,7 @@ public class DisplayInvoice extends HttpServlet {
 			   out.println("</table>");
 	
 			//order lines table starts here
-			out.println("<hinsert into order_lines VALUES (2,2,\"MNR008\",5,1299.95);3>Lines</h3>");
+			out.println("<h3>Lines</h3>");
 			out.println("<table style=\"width:100%\">");
 			out.println("<tr>");
 			out.println("<th>Order Seq</th>"
@@ -146,7 +138,6 @@ public class DisplayInvoice extends HttpServlet {
 			// create row with data for each row from result set
 			while (rs.next()) 
 			{
-				
 				out.println("<tr>");
 				out.println("<td>" + rs.getString("order_seq") + "</td>");
 				out.println("<td>" + rs.getString("partcode") + "</td>");

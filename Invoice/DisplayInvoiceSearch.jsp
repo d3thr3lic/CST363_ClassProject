@@ -45,7 +45,8 @@
             <input type = "submit" value = "Submit" /> 
       </form>
       	<br>
- 		<a href="DisplayInventory">Inventory</a>
+      	
+ 		<a href="DisplayInventory.jsp">Inventory</a>
  		<br>
  			<h3>Recent Orders</h3>
  		<table>
