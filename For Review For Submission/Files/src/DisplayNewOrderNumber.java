@@ -44,8 +44,8 @@ public class DisplayNewOrderNumber extends HttpServlet {
 				"WHERE " + 
 				"    s.address_type = 'SHIP' " + 
 				"		AND b.address_type = 'BILL' " + 
-				"        AND s.customer_id = 1 " + 
-				"        AND b.customer_id = 1";
+				"        AND s.customer_id = ? " + 
+				"        AND b.customer_id = ?";
 		// This sql statement will contain the most recently created order number, which will be the order number
 		// that was created by the above insert statement.
 		String sql2= "SELECT MAX(order_number) as most_recently_created_order_number " + 
@@ -62,7 +62,9 @@ public class DisplayNewOrderNumber extends HttpServlet {
 		{
 			PreparedStatement pstmt1 = conn.prepareStatement(sql1);
 			PreparedStatement pstmt2 = conn.prepareStatement(sql2);
-			pstmt1.setString(1, customerId); 
+			pstmt1.setString(1, customerId);
+			pstmt1.setString(2, customerId);
+			pstmt1.setString(3, customerId); 
 			pstmt1.executeUpdate();
 			//Wait a moment before running the second select statement, just in case it needs a moment to properly insert into the database
 			Thread.sleep(500);
