@@ -42,6 +42,12 @@ SET total_order_value
 WHERE order_number LIKE ?;
 -- END OF QUERIES @NicholasSaunders
 
+
+
+
+
+
+
 -- Ramon Lucindo
 --SQL Queries Used in Project 2
 
@@ -83,3 +89,68 @@ delete_item servlet uses:
 
 -- to display inventory table and all fields after deleting item
 
+
+
+
+
+
+
+-- Mitchell Saunders
+
+-- query to create new order for customer (first step for order creation)    
+-- This query will always start the total value off at zero dollars, and is hard coded to work with customerid 1
+INSERT INTO order_header
+	(total_order_value, customer_id, ship_address, ship_zip_code,
+		ship_state, ship_phone,	bill_address, bill_zip_code, bill_state, bill_phone)
+SELECT 
+	0, 1, -- the 0 will represent the starting line value, the 1 represents the customer ID that the user will specify
+    s.address, s.zip_code, s.state, s.phone,
+    b.address, b.zip_code, b.state, b.phone
+FROM
+    customer_addresses s JOIN customer_addresses b
+		ON s.customer_id = b.customer_id
+WHERE
+    s.address_type = 'SHIP'
+		AND b.address_type = 'BILL'
+        AND s.customer_id = 1 -- custid 1
+        AND b.customer_id = 1; -- custid 1
+        
+
+
+-- get the most recently created order number and return it to the user
+-- This should be performed immedaitely after the above insert statement
+-- This will provide the user with an order number to insert into the order_line screen
+SELECT MAX(order_number) as most_recently_created_order_number
+FROM order_header;
+
+	
+
+-- inert new order line into table
+INSERT INTO order_lines
+	(order_number, order_seq, partcode, quantity, line_value)
+SELECT 1, (	SELECT IFNULL(MAX(order_seq),0) AS highest_seq -- hard-coded order number 1
+			FROM order_lines
+			WHERE order_number = 1) + 1, -- hard-coded for order number 1
+		"MNR001", 3, list_price * 3 -- hard-coded for product MNR001
+FROM inventory
+WHERE partcode = "MNR001"; -- hard-coded for product MNR001
+
+
+
+-- check to see if desired quantity of product is available, and if it is, then update the inventory table
+-- See https://stackoverflow.com/questions/12668701/subquery-in-where-clause-of-update-statement
+UPDATE inventory i
+INNER JOIN (
+	SELECT i.partcode, i.quantity AS available_qty
+	FROM inventory i
+	WHERE i.partcode = "MNR001" -- hard-coded for product MNR001
+) vi ON i.partcode = vi.partcode AND 1 <= vi.available_qty -- hard-coded to remove just 1 from inventory.
+SET i.quantity = i.quantity - 1 -- again, hard-coded to decrease 1 from inventory
+WHERE i.partcode = "MNR001"; -- hard coded to for product MNR001
+
+
+
+
+-- select statement to show all customers from the customer table to help user pick a customer id
+SELECT *
+FROM customers;
