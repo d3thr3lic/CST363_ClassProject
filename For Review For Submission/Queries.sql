@@ -42,3 +42,44 @@ SET total_order_value
 WHERE order_number LIKE ?;
 -- END OF QUERIES @NicholasSaunders
 
+-- Ramon Lucindo
+--SQL Queries Used in Project 2
+
+
+-- main_inventory servlet uses:
+
+"SELECT * from inventory"
+
+to display inventory table and all fields
+
+
+--total_cost servlet uses:
+
+"SELECT SUM(list_price * quantity) from inventory"
+
+to display total monetary value of everything in the inventory
+
+
+-- add_item servlet uses:
+
+"INSERT INTO inventory (partcode, description, quantity, list_price) VALUES (?, ?, ?, ?)"
+
+--to insert one item with all valid and corresponding values for --available fields
+
+
+"SELECT * from inventory"
+
+-- to display inventory table and all fields after adding item
+
+
+delete_item servlet uses:
+
+"DELETE FROM inventory WHERE partcode=?"
+
+ -- to delete one entry based on item/part code
+
+
+"SELECT * from inventory"
+
+-- to display inventory table and all fields after deleting item
+
