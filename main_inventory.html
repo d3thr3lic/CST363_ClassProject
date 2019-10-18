@@ -1,0 +1,36 @@
+<!--Author Ramon Lucindo-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>MNR Canine Goods Inventory</title>
+</head>
+<body>
+<div><h1>MNR Canine Goods Inventory</h1>
+	<form action = "main_inventory" method = "POST">
+	<input type = "submit" value = "View Inventory" />
+	</form></div>
+	
+<div><h1>Inventory Total Cost</h1>
+	<form action="total_cost" method="POST">
+	<input type="submit" value="View Total Inventory Cost" />
+	</form></div>
+	
+<div><h1>Add A New Product</h1>
+	<form action="add_item" method="POST">
+	Item Code<br /><input type="text" name="partcode"><br />
+	Description<br /><input type="text" name="description"><br />
+	Quantity<br /><input type="number" name="quantity"><br />
+	Cost<br /><input type="number" name="list_price" step="0.01"><br /><br />
+	<input type="submit" value="Submit" />
+	</form></div>
+
+<div><h1>Delete A Product</h1>
+	<form action="delete_item" method="POST">
+	Item Code<br /><input type="text" name="partcode"><br /><br />
+	<input type="submit" value="Submit" />
+	</form></div>
+
+</body>
+</html>
