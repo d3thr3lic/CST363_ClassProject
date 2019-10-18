@@ -8,15 +8,17 @@ INSERT INTO customers VALUES(1, 'Science Food'),
 (6, 'Dog Sturdy'),
 (7, 'Dogorzo'),
 (8, 'The Healthy Dog'),
-(9, 'Platinum Dog'),
-(10, 'Dogmart');
+(9, 'Platinum Dog');
 
 -- Data entry for customer_addresses (customer_id, address_type, address, zip_code, state)
 
-INSERT INTO customer_addresses VALUES(1, 'SHIP', '1338 Cecil Street', 60089, 'IL','398-643-9782'),
+INSERT INTO customer_addresses VALUES
+(1, 'SHIP', '1338 Cecil Street', 60089, 'IL','398-643-9782'),
 (1, 'BILL', '1338 Cecil Street', 60089, 'IL','398-643-9782'),
+
 (2, 'SHIP', '4413 Hill Haven Drive', 98433, 'WA','509-764-9884'),
 (2, 'BILL', '4605 Calico Drive', 98801, 'WA','360-823-2829'),
+
 (3, 'SHIP', '2161 Sycamore Lake Road', 54301, 'WI','262-909-9892'),
 (3, 'BILL', '1910 Anmoore Road', 11101, 'NY','585-266-6935'),
 
@@ -36,10 +38,8 @@ INSERT INTO customer_addresses VALUES(1, 'SHIP', '1338 Cecil Street', 60089, 'IL
 (8, 'BILL', '2801 Hickman Street', 60173, 'IL','708-412-2242'),
 
 (9, 'SHIP', '4271 Hershell Hollow Road', 98119, 'WA','509-687-7931'),
-(9, 'BILL', '4271 Hershell Hollow Road', 98119, 'WA','509-687-7931'),
+(9, 'BILL', '4271 Hershell Hollow Road', 98119, 'WA','509-687-7931');
 
-(10, 'SHIP', '4178 Millbrook Road', 60090, 'IL','312-258-8971'),
-(10, 'BILL', '3424 Willison Street', 55303, 'MN','952-277-6535');
 
 
 -- Data entry for inventory ( partcode, description, quanity, list_price)

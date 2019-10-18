@@ -1,5 +1,5 @@
 
---@NicholasSaunders
+-- @NicholasSaunders
 -- This query below brings out all lines per order within an invoice
 -- which contains customer information, date, address, costs and products
 -- used within tables of order_header, order_lines, customers.
@@ -32,5 +32,13 @@ SELECT c.customer_name , oh.order_number, oh.order_date
 FROM order_header oh JOIN customers c
     ON oh.customer_id = c.customer_id
     ORDER BY order_date;
+    
+-- This is an update query that updates total value of all lines in an invoice and
+-- has a total of all values per lines each time it a product is added to the order.
+-- Please change "LIKE ?" to "= <interger>" to manually use query in database.
+UPDATE order_header 
+SET total_order_value 
+	= (SELECT SUM(line_value) FROM order_lines)
+WHERE order_number LIKE ?;
 -- END OF QUERIES @NicholasSaunders
 
