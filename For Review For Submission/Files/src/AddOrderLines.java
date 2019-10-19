@@ -63,7 +63,7 @@ public class AddOrderLines extends HttpServlet {
 			pstmt1.setInt(5, quantity);
 			pstmt1.setString(6, part_code);
 			int row_count = pstmt1.executeUpdate();
-			System.out.println("Debug: insert rowcount = " + row_count);
+			// System.out.println("Debug: insert rowcount = " + row_count);
 
 			PreparedStatement pstmt2 = conn.prepareStatement(usql);
 			pstmt2 = conn.prepareStatement(usql);
